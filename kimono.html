@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eiyo Kimono | Traditional & Modern Japanese Kimono</title>
+
+  <!-- Bootstrap 4.6 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-red: #d32f2f;
+      --text-dark: #2c2c2c;
+      --text-light: #666666;
+      --text-muted: #999999;
+      --bg-light: #f8f9fa;
+      --border-light: #e5e5e5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: #fff;
+    }
+
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid var(--border-light);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary-red) !important;
+      letter-spacing: 2px;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-dark) !important;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--primary-red) !important;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-red);
+      transition: width 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .navbar-icons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .navbar-icons .currency-selector {
+      border: none;
+      background: none;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+
+    .navbar-icons i {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    .navbar-icons i:hover {
+      color: var(--primary-red);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+      padding: 100px 0;
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .main-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--text-dark);
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .product-card {
+      background: #fff;
+      border: none;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      background-color: #f0f0f0;
+    }
+
+    .product-info {
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    .product-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .product-price {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .btn-primary {
+      background-color: var(--text-dark);
+      border: 2px solid var(--text-dark);
+      color: white;
+      padding: 12px 30px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--text-dark);
+      border-color: var(--text-dark);
+    }
+
+    .btn-outline-dark {
+      border: 2px solid var(--text-dark);
+      color: var(--text-dark);
+      padding: 12px 30px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-dark:hover {
+      background-color: var(--text-dark);
+      color: white;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0,0,0,0.1);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+      left: -25px;
+    }
+
+    .carousel-control-next {
+      right: -25px;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background-color: rgba(0,0,0,0.3);
+    }
+
+    .carousel-indicators {
+      bottom: -50px;
+    }
+
+    .carousel-indicators li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--text-muted);
+      margin: 0 5px;
+    }
+
+    .carousel-indicators .active {
+      background-color: var(--text-dark);
+    }
+
+    .promo-section {
+      background-color: var(--text-dark);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .promo-section h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .promo-section p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .footer {
+      background-color: #f8f9fa;
+      border-top: 1px solid var(--border-light);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-dark);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      color: var(--text-dark);
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .main-title {
+        font-size: 1.8rem;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 0.5rem 0;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Place your content from the <body> here -->
+<!-- Important: Just replace all `data-bs-*` with `data-*` and `button` carousel controls with `a` elements -->
+
+<!-- JS Scripts at the bottom -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
